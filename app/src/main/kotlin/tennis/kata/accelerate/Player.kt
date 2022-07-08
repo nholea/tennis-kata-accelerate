@@ -3,7 +3,13 @@
  */
 package tennis.kata.accelerate
 
-class App {
+class Player {
+    var points: Int = 0
+
+    fun increaseScore(playerScore: Int) {
+        if (playerScore == 30) points += 10
+    }
+
     val greeting: String
         get() {
             return "Hello World!"
@@ -11,5 +17,5 @@ class App {
 }
 
 fun main() {
-    println(App().greeting)
+    println(Player().greeting)
 }
