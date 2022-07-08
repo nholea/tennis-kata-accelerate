@@ -165,3 +165,5 @@ gradle-app.setting
 .classpath
 
 # End of https://www.toptal.com/developers/gitignore/api/kotlin,intellij,gradle
+# Ignore Gradle build output directory
+build
