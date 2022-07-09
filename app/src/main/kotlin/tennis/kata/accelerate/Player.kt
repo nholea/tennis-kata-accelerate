@@ -11,9 +11,8 @@ class Player {
     }
 
     val greeting: String
-        get() {
-            return "Hello World!"
-        }
+        get() = "Hello World!"
+
 }
 
 fun main() {
