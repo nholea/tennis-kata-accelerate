@@ -10,21 +10,50 @@ class Game(player1: Player, player2: Player) {
     private var player1Points = player1.getPoints()
     private var player2Points = player2.getPoints()
 
-    fun getScore() {
+    fun getScore(): String {
+
+        val scores = listOf("love", "15", "30", "40")
+        var score = ""
+
+        if (player1Points < 4 && player2Points < 4 && player1Points + player1Points < 6) {
+            if (player1Points == player2Points) {
+                score = "${scores[player1Points]}-All"
+            } else {
+                score = "${scores[player1Points]} - ${scores[player2Points]}"
+            }
+        } else {
+            if (player1Points == player2Points) {
+                score = "Deuce"
+            } else {
+                score = advantageOrWin(player1Points, player2Points)
+            }
+        }
+        return score
 
     }
 
-    fun wonPoint(playerName: String){
-        if (playerName == player1.name){
-            player1Points ++
-        }else{
-            player2Points ++
+    fun wonPoint(playerName: String) {
+        if (playerName == player1.name) {
+            player1Points++
+        } else {
+            player2Points++
         }
+    }
+
+    fun advantageOrWin(player1Points: Int, player2Points: Int): String {
+        var score = ""
+        val pointDifference = player1Points - player2Points
+        score = when {
+            pointDifference == 1 -> "Advantage for ${player1.name}"
+            pointDifference == -1 -> "Advantage for ${player2.name}"
+            pointDifference >= 2 -> "Win for ${player1.name}"
+            else -> "Win for ${player2.name}"
+        }
+        return score
     }
 
     fun getPlayer1Points() = player1Points
     fun getPlayer2Points() = player2Points
-
 
 
 }
@@ -32,8 +61,15 @@ class Game(player1: Player, player2: Player) {
 fun main() {
 
     val tennisGame = Game(Player("Natalia"), Player("Enrique"))
+    tennisGame.wonPoint("Enrique")
     tennisGame.wonPoint("Natalia")
     tennisGame.wonPoint("Natalia")
-    println(tennisGame.getPlayer1Points())
+    tennisGame.wonPoint("Enrique")
+    tennisGame.wonPoint("Enrique")
+    tennisGame.wonPoint("Natalia")
+    tennisGame.wonPoint("Enrique")
+    tennisGame.wonPoint("Enrique")
+
+    println(tennisGame.getScore())
 
 }
