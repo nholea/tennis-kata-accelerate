@@ -4,16 +4,36 @@
 package tennis.kata.accelerate
 
 class Game(player1: Player, player2: Player) {
-    var player1Points = player1.getPoints()
-    var player2Points = player2.getPoints()
+    val player1 = player1
+    val player2 = player2
+
+    private var player1Points = player1.getPoints()
+    private var player2Points = player2.getPoints()
 
     fun getScore() {
 
     }
 
+    fun wonPoint(playerName: String){
+        if (playerName == player1.name){
+            player1Points ++
+        }else{
+            player2Points ++
+        }
+    }
+
+    fun getPlayer1Points() = player1Points
+    fun getPlayer2Points() = player2Points
+
+
 
 }
 
 fun main() {
+
+    val tennisGame = Game(Player("Natalia"), Player("Enrique"))
+    tennisGame.wonPoint("Natalia")
+    tennisGame.wonPoint("Natalia")
+    println(tennisGame.getPlayer1Points())
 
 }
