@@ -1,13 +1,9 @@
 package tennis.kata.accelerate
 
-class Player (name: String){
-    val name = name
+class Player (val name: String){
 
     private val points = 0
 
     fun getPoints() = points
 }
 
-fun main(){
-
-}

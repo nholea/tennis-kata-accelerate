@@ -3,9 +3,7 @@
  */
 package tennis.kata.accelerate
 
-class Game(player1: Player, player2: Player) {
-    val player1 = player1
-    val player2 = player2
+class Game(val player1: Player, val player2: Player) {
 
     private var player1Points = player1.getPoints()
     private var player2Points = player2.getPoints()
@@ -13,7 +11,7 @@ class Game(player1: Player, player2: Player) {
     fun getScore(): String {
 
         val scores = listOf("love", "15", "30", "40")
-        var score = ""
+        var score: String
 
         if (player1Points < 4 && player2Points < 4 && player1Points + player1Points < 6) {
             if (player1Points == player2Points) {
@@ -41,7 +39,7 @@ class Game(player1: Player, player2: Player) {
     }
 
     fun advantageOrWin(player1Points: Int, player2Points: Int): String {
-        var score = ""
+        var score: String
         val pointDifference = player1Points - player2Points
         score = when {
             pointDifference == 1 -> "Advantage for ${player1.name}"
