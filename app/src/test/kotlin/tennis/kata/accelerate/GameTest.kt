@@ -12,6 +12,7 @@ class GameTest {
         gameTest.wonPoint("Sonia")
         gameTest.wonPoint("Sonia")
         gameTest.wonPoint("Sonia")
+
         val totalPlayer1Points = gameTest.getPlayer1Points()
         assertThat(totalPlayer1Points).isEqualTo(3)
     }
@@ -24,6 +25,7 @@ class GameTest {
         gameTest.wonPoint("Pedro")
         gameTest.wonPoint("Pedro")
         gameTest.wonPoint("Pedro")
+
         val result = gameTest.getScore()
         assertThat(result).isEqualTo("Deuce")
     }
@@ -37,6 +39,7 @@ class GameTest {
         gameTest.wonPoint("Pedro")
         gameTest.wonPoint("Pedro")
         gameTest.wonPoint("Pedro")
+
         val result = gameTest.getScore()
         assertThat(result).isEqualTo("Advantage for Sonia")
     }
@@ -50,6 +53,7 @@ class GameTest {
         gameTest.wonPoint("Pedro")
         gameTest.wonPoint("Pedro")
         gameTest.wonPoint("Pedro")
+
         val result = gameTest.getScore()
         assertThat(result).isEqualTo("Win for Pedro")
     }
