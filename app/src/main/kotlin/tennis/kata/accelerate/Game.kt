@@ -17,7 +17,7 @@ class Game(val player1: Player, val player2: Player) {
             if (player1Points == player2Points) {
                 score = "${scores[player1Points]}-All"
             } else {
-                score = "${scores[player1Points]} - ${scores[player2Points]}"
+                score = "${player1.name}: ${scores[player1Points]} - ${scores[player2Points]} :${player2.name} "
             }
         } else {
             if (player1Points == player2Points) {
@@ -64,9 +64,9 @@ fun main() {
     tennisGame.wonPoint("Natalia")
     tennisGame.wonPoint("Enrique")
     tennisGame.wonPoint("Enrique")
-    tennisGame.wonPoint("Natalia")
-    tennisGame.wonPoint("Enrique")
-    tennisGame.wonPoint("Enrique")
+    //tennisGame.wonPoint("Natalia")
+    //tennisGame.wonPoint("Enrique")
+    //tennisGame.wonPoint("Enrique")
 
     println(tennisGame.getScore())
 
