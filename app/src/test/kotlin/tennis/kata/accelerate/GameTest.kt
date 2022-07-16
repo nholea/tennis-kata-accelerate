@@ -13,7 +13,7 @@ class GameTest {
         gameTest.wonPoint("Sonia")
         gameTest.wonPoint("Sonia")
 
-        val totalPlayer1Points = gameTest.getPlayer1Points()
+        val totalPlayer1Points = gameTest.player1Points
         assertThat(totalPlayer1Points).isEqualTo(3)
     }
 
