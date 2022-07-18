@@ -31,20 +31,20 @@ class GameTest {
     }
 
     @Test
-    fun `advantage player 1`(){
+    fun `when previous score 40-40 and player one wins then current score is ADVANTADGE-40`(){
         val player1Points = gameTest.wonPoint("Sonia")
         gameTest.wonPoint("Sonia")
         gameTest.wonPoint("Sonia")
+        gameTest.wonPoint("Pedro")
+        gameTest.wonPoint("Pedro")
+        gameTest.wonPoint("Pedro")
         gameTest.wonPoint("Sonia")
-        gameTest.wonPoint("Pedro")
-        gameTest.wonPoint("Pedro")
-        gameTest.wonPoint("Pedro")
 
         val result = gameTest.getScore()
         assertThat(result).isEqualTo("Advantage for Sonia")
     }
     @Test
-    fun `win for player 2`(){
+    fun `when previous score 40-ADVANTADGE and player two wins then Player 2 wins the GAME`(){
         gameTest.wonPoint("Sonia")
         gameTest.wonPoint("Sonia")
         gameTest.wonPoint("Sonia")
