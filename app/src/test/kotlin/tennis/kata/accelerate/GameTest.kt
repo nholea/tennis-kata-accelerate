@@ -3,18 +3,28 @@ package tennis.kata.accelerate
 import org.junit.jupiter.api.Test
 import org.assertj.core.api.Assertions.*
 
-class GameTest {
+internal class GameTest {
 
     private val gameTest = Game(Player("Sonia"), Player("Pedro"))
 
     @Test
-    fun `get the points won by player1(Sonia)`(){
+    fun `initial score is Love-Love`(){
+
+        assertThat(gameTest.getScore()).isEqualTo("Sonia: Love - Love :Pedro")
+    }
+    @Test
+    fun `when previous score LOVE-LOVE and player one wins then current score is 15-LOVE`(){
         gameTest.wonPoint("Sonia")
+
+        assertThat(gameTest.getScore()).isEqualTo("Sonia: 15 - Love :Pedro")
+    }
+
+    @Test
+    fun `when previous score 15-LOVE and player one wins then current score is 30-LOVE`(){
         gameTest.wonPoint("Sonia")
         gameTest.wonPoint("Sonia")
 
-        val totalPlayer1Points = gameTest.player1Points
-        assertThat(totalPlayer1Points).isEqualTo(3)
+        assertThat(gameTest.getScore()).isEqualTo("Sonia: 30 - Love :Pedro")
     }
 
     @Test
