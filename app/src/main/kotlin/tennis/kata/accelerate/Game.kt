@@ -16,7 +16,7 @@ class Game(val player1: Player, val player2: Player) {
 
         val scores = listOf("Love", "15", "30", "40")
 
-        if (player1Points + player1Points < 6) {
+        if (player1Points<=3 || player2Points <=3 && player1Points + player1Points < 6) {
                 return "${player1.name}: ${scores[player1Points]} - ${scores[player2Points]} :${player2.name}"
         }
         return advantageOrWin(player1Points, player2Points)
